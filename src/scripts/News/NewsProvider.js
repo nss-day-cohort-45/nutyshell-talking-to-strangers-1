@@ -1,3 +1,7 @@
+//This module handles fetch requests to get the news resource, save to it, and 
+//will also delete
+// -Ron
+
 const eventHub = document.querySelector(".container")
 
 export const getNews = () => {

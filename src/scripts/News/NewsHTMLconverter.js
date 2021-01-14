@@ -1,3 +1,6 @@
+//This module allows for the conversion of a news object from the database into HTML
+// -Ron
+
 const eventHub = document.querySelector(".container")
 
 let user;

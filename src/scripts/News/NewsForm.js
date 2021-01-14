@@ -1,3 +1,8 @@
+//This module creates the form that allows for a user to save a news article. 
+//It also creates the event listener that allows for the saveNews function to be called
+//and updates the DOM to show the new article
+// - Ron
+
 import { useNews } from "./NewsProvider.js"
 import { saveNews } from "./NewsProvider.js"
 

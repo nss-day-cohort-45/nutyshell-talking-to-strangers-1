@@ -1,3 +1,7 @@
+//This module renders the list of news objects in the database and uses the newsHTMLconverter 
+//to put them on the DOM
+// -Ron
+
 import { useNews, getNews } from "./NewsProvider.js"
 import { NewsHTMLconverter } from "./NewsHTMLconverter.js"
 import { NewsForm } from "./NewsForm.js"
