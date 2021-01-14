@@ -1,7 +1,7 @@
 const eventHub = document.querySelector(".container")
 
 export const getNews = () => {
-    return fetch("http://localhost:8088/database?_expand=news")
+    return fetch("http://localhost:8088/news")
         .then(response => response.json())
         .then(parsedNews => {
             news = parsedNews
@@ -13,7 +13,7 @@ const dispatchStateChangeEvent = () => {
 }
 
 export const saveNews = (newArticle) => {
-    fetch("http://localhost:8088/entries", {
+    fetch("http://localhost:8088/news", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

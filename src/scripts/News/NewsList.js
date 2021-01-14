@@ -1,11 +1,12 @@
 import { useNews, getNews } from "./NewsProvider.js"
 import { NewsHTMLconverter } from "./NewsHTMLconverter.js"
+import { NewsForm } from "./NewsForm.js"
 
 const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".dashboard")
+const contentTarget = document.querySelector("#theNews")
 
 eventHub.addEventListener("newsStateChanged", (customEvent) => {
-    newsList()
+    NewsList()
 })
 
 let news = []
@@ -22,7 +23,7 @@ export const NewsList = () => {
 const render = (articles) => {
     if (articles.length > 0){
         contentTarget.innerHTML = articles
-        .map((newArticle) => NewsList(newArticle))
+        .map((newArticle) => NewsHTMLconverter(newArticle))
         .join("")
     }
 }
