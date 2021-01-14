@@ -1,3 +1,7 @@
+// This module fetches the "friends" data from database.json and allows us to manipulate it in various ways.
+// We can use the friends data with "UseFriends," add a new friend to the array with "SaveFriend," and delete a friend with "DeleteFriends"
+// -Christina
+
 const eventHub = document.querySelector("#container")
 
 let friends = []
