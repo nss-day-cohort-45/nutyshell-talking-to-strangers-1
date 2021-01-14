@@ -2,7 +2,7 @@
 //the goal of this module is interact with the json database 
 //and provide the necessary messages array
 
-const eventHub = document.querySelector(".container")
+const eventHub = document.querySelector("#container")
 //intialize empthy array
 let messages = []
 
@@ -43,5 +43,11 @@ export const deleteMessage = messageId => {
   eventHub.addEventListener("deleteMessage", e => {
       deleteMessage(e.detail.chosenMessageId)
   })
+
+  //this purpose of thus function is??
+  const dispatchMessageChangeEvent = () => {
+    const messageStateChangedEvent = new CustomEvent("MessageStateChanged")
+    eventHub.dispatchEvent(messageStateChangedEvent)
+  }
 //wondering about creating a delete and edit functions 
 //and event listeners for each one
