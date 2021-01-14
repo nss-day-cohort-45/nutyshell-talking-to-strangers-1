@@ -5,7 +5,7 @@ const contentTarget = document.querySelector("#newsForm")
 const eventHub = document.querySelector(".container")
 
 // create a function to find the matching username to userId
-// const userId = getItem(user.id)
+
 
 
 export const NewsForm = () => {
@@ -14,7 +14,6 @@ contentTarget.innerHTML = `
 
 <div class="field is-2 ml-5 mt-6 mb-6">
 <h2>News Entry</h2>
-<div class="newsDate" id="newsDate">Date: ${Date.now()}</p>
 <!-- username will go here --!>
 <label class="label" id="userName">USER NAME</p>
 <div class="field">
@@ -32,12 +31,12 @@ contentTarget.innerHTML = `
 <div class="field">
   <label class="label">News Article Synopsis</label>
   <div class="control">
-    <input class="input" type="text" placeholder="enter a synopsis for the news article" id="newsSynopsis>
+    <input class="input" type="text" placeholder="enter a synopsis for the news article" id="newsSynopsis">
   </div>
 </div>
 
-<div class="control" id="saveNews">
-  <button class="button is-primary mt-3">Save News Article</button>
+<div class="control">
+  <button class="button is-primary mt-3" id="saveNews">Save News Article</button>
 </div>
 
 
@@ -48,30 +47,34 @@ contentTarget.innerHTML = `
 
 
 eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "saveNews"){
-console.log("anything?")
-        // let date = document.getElementById("newsDate")
-        // let user = document.getElementById("userName")
-        let url = document.getElementById("newsURL")
-        let title = document.getElementById("newsTitle")
-        let synopsis = document.getElementById("newsSynopsis")
-        
-//date.value && user.value && 
-
-        if (url.value && title.value && synopsis.value !== "") {
+  if (clickEvent.target.id === "saveNews"){
+      
+        let user = parseInt(sessionStorage.getItem("activeUser"))
+        let date = Date.now()
+        let url = document.getElementById("newsURL").value
+        let title = document.getElementById("newsTitle").value
+        let synopsis = document.getElementById("newsSynopsis").value
+        console.log(url)
+        console.log(title)
+        console.log(synopsis)
+    
             const newArticle = {
-                date: Date.now(),
-                user: storage.getItem(user.id),
-                url: url.value,
-                title: title.value,
-                synopsis: synopsis.value
+                date:new Date(date).toLocaleDateString('en-US')  ,
+                userId: user,
+                url: url,
+                title: title,
+                synopsis: synopsis
             }
-            saveEntry(newArticle)
-            date.value = ""
-            user.value = ""
-            url.value = ""
-            title.value = ""
-            synopsis.value = ""
-        }
+            saveNews(newArticle)
+            
+            url = ""
+            title= ""
+            synopsis= ""
+        
     }
-})
+    })
+        
+      
+      
+      
+      
