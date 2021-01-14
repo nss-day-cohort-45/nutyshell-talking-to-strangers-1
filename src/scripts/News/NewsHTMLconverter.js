@@ -7,7 +7,7 @@ let user;
 
 if (sessionStorage.getItem("activeUser") !== null){
     user = parseInt(sessionStorage.getItem("activeUser"))
-    console.log(user)
+ 
 }
 export const NewsHTMLconverter = (newsObj) => {
     return `
@@ -22,6 +22,10 @@ export const NewsHTMLconverter = (newsObj) => {
   <p>URL:<a href="${newsObj.url}">${newsObj.url}</a></p>
   <p>Title: ${newsObj.title}</p>
   <p>Synopis: ${newsObj.synopsis}</p>
+  <div class="control  is-flex is-justify-content-center">
+  <button class="button mt-3 ml-6 is-danger" id="deleteNews--${newsObj.id}">Delete News Article</button>
+</div>
   </div></div></div></article>
+
     `
 }

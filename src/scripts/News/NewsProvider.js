@@ -24,8 +24,20 @@ export const saveNews = (newArticle) => {
         },
         body: JSON.stringify(newArticle)
     })
-        .then(getNews)  // <-- Get all journal entries
-        .then(dispatchStateChangeEvent) } // <-- Broadcast the state change event
+        .then(getNews)
+        .then(dispatchStateChangeEvent) } 
+
+export const deleteNews = newsId => {
+    fetch(`http://localhost:8088/news/${newsId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(getNews)
+    .then(dispatchStateChangeEvent)
+}
+
     
 
 

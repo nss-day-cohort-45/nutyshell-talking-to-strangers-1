@@ -3,8 +3,7 @@
 //and updates the DOM to show the new article
 // - Ron
 
-import { useNews } from "./NewsProvider.js"
-import { saveNews } from "./NewsProvider.js"
+import { saveNews, deleteNews } from "./NewsProvider.js"
 
 const contentTarget = document.querySelector("#newsForm")
 const eventHub = document.querySelector(".container")
@@ -40,7 +39,7 @@ contentTarget.innerHTML = `
   </div>
 </div>
 
-<div class="control">
+<div class="control  is-flex is-justify-content-center">
   <button class="button mt-3 is-primary" id="saveNews">Save News Article</button>
 </div>
 
@@ -59,9 +58,6 @@ eventHub.addEventListener("click", clickEvent => {
         let url = document.getElementById("newsURL").value
         let title = document.getElementById("newsTitle").value
         let synopsis = document.getElementById("newsSynopsis").value
-        console.log(url)
-        console.log(title)
-        console.log(synopsis)
     
             const newArticle = {
                 date:new Date(date).toLocaleDateString('en-US')  ,
@@ -79,7 +75,13 @@ eventHub.addEventListener("click", clickEvent => {
     }
     })
         
-      
+    eventHub.addEventListener("click", clickEvent => {
+      if (clickEvent.target.id.startsWith("deleteNews--")) {
+          const [prefix, newsId] = clickEvent.target.id.split("--")
+          
+         deleteNews(newsId)
+      }
+    })
       
       
       
