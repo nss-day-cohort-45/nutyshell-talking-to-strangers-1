@@ -1,10 +1,12 @@
 import { NewsForm } from "./News/NewsForm.js"
 import { NewsList } from "./News/NewsList.js"
+import { FriendForm } from "./Friend/FriendForm.js"
 
 export const Nutshell = () => {
     NewsList()
     NewsForm()
-    return console.log("test")
+    FriendForm()
+   
     // Render all your UI components here
 }
 
