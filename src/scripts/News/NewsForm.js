@@ -12,10 +12,10 @@ export const NewsForm = () => {
     
 contentTarget.innerHTML = `
 
-<div class="field is-2 ml-5 mt-6 mb-6">
-<h2>News Entry</h2>
+<div class="field is-2 ml-6 mt-6 mb-6">
+<label class="label">News Article Entry</label>
 <!-- username will go here --!>
-<label class="label" id="userName">USER NAME</p>
+<label class="label" id="userName">username will go here</p>
 <div class="field">
   <label class="label">Article URL</label>
   <div class="control">
@@ -31,12 +31,12 @@ contentTarget.innerHTML = `
 <div class="field">
   <label class="label">News Article Synopsis</label>
   <div class="control">
-    <input class="input" type="text" placeholder="enter a synopsis for the news article" id="newsSynopsis">
+    <textarea class="textarea" rows="4" placeholder="enter a synopsis for the news article" id="newsSynopsis"></textarea>
   </div>
 </div>
 
 <div class="control">
-  <button class="button is-primary mt-3" id="saveNews">Save News Article</button>
+  <button class="button mt-3 is-primary" id="saveNews">Save News Article</button>
 </div>
 
 

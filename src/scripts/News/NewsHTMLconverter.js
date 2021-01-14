@@ -8,9 +8,9 @@ if (sessionStorage.getItem("activeUser") !== null){
 }
 export const NewsHTMLconverter = (newsObj) => {
     return `
-    <div class="box ml-6 mb-4">
+    <div class="box ml-6 mr-6 mb-4">
     <article class="media">
-      </div>
+      
       <div class="media-content">
         <div class="content">
   <p class="title"></p>
@@ -19,6 +19,6 @@ export const NewsHTMLconverter = (newsObj) => {
   <p>URL:<a href="${newsObj.url}">${newsObj.url}</a></p>
   <p>Title: ${newsObj.title}</p>
   <p>Synopis: ${newsObj.synopsis}</p>
-  </div></div></article>
+  </div></div></div></article>
     `
 }
