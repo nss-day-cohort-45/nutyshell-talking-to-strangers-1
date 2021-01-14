@@ -1,4 +1,9 @@
-import { GetFriends, UseFriends, SaveFriend } from "./FriendProvider.js"
+// This module creates the "form" that will appear when the "Add Friend" button is clicked.
+// It then checks to make sure the username typed into the input field is authenticated.
+// If it is, the data is saved in a new entry in the "friends" section of the database, meaning the user will now appear on the active user's friend list.
+// -Christina
+
+import { SaveFriend } from "./FriendProvider.js"
 
 const contentTarget = document.querySelector("#friendForm")
 const eventHub = document.querySelector("#container")
@@ -35,10 +40,5 @@ const render = () => {
 }
 
 export const FriendForm = () => {
-    GetFriends()
-        .then(() => {
-          const friends = UseFriends()
-          render(friends)
-        })
-    
+  render()
 }
