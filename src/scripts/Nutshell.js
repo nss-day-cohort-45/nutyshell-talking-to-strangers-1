@@ -1,4 +1,6 @@
+import { FriendForm } from "./Friend/FriendForm.js"
+
 export const Nutshell = () => {
-    return console.log("test")
     // Render all your UI components here
+    FriendForm()
 }
