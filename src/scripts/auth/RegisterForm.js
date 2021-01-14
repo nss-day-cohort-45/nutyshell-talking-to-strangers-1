@@ -40,6 +40,9 @@ eventHub.addEventListener("click", e => {
                 }
             })
         }
+        else {
+            window.alert("Username & email are required fields! 😠")
+        }
     }
 })
 
