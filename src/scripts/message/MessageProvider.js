@@ -1,8 +1,12 @@
 //Anna Moore
 //the goal of this module is interact with the json database 
-//and provide the necessary messages array
+//provides the necessary messages array with useMessages(), getMessages()
+//provides function to alter the database saveMessage(), and deleteMessage() 
+//contains event listeners to ensure this happens at the correct time
+
 
 const eventHub = document.querySelector("#container")
+
 //intialize empthy array
 let messages = []
 
