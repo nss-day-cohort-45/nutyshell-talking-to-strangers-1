@@ -5,6 +5,7 @@
 import { useNews, getNews } from "./NewsProvider.js"
 import { NewsHTMLconverter } from "./NewsHTMLconverter.js"
 import { NewsForm } from "./NewsForm.js"
+import { newsModalButton } from "./NewsModalButton.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector("#theNews")
@@ -21,6 +22,7 @@ export const NewsList = () => {
         news = useNews()
 
         render(news)
+        newsModalButton()
     })
 }
 
