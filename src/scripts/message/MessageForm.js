@@ -29,10 +29,10 @@ eventHub.addEventListener("click", clickEvent =>{
 // a render function to display the new chat message that has been added
 const render = () => {
     //??const messageCollection = useMessages()
-    contentTarget.innerHTML = `<section >
+    contentTarget.innerHTML = `<section class="field is-2 ml-6 mt-6 mb-6">
     <p> please place message here. </p>
     <input id="messageString" type="text" required placeholder="type here">
-    <button type="button" id="sendBtn" >Send</button>
+    <button class="button mt-3  is-info" type="button" id="sendBtn" >Send</button>
     </section>
     `
     //onclick="myFunction()" 
