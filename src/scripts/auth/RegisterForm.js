@@ -49,12 +49,26 @@ eventHub.addEventListener("click", e => {
 
 const render = () => {
     contentTarget.innerHTML += `
-        <section class="register">
-            <input id="register--username" type="text" placeholder="Enter your username">
-            <input id="register--email" type="text" placeholder="Enter your email address">
+ 
+    <section class="register">
+    <div class="field">
+        <div class="control">
+            <input class="input is-primary mr-6 mt-4 is-rounded" id="register--username" type="text" placeholder="Enter your username">
+            
+        </div>
+        <div class="control">
+            <input class="input is-primary mr-6 mt-4 is-rounded" id="register--email" type="email" placeholder="Enter your email address">
+            
+        </div>
+        <div class="control  is-flex is-justify-content-center">
+            <button class="button mt-3 is-primary" id="register--button">Register</button>
+        </div>
+    </div>
 
-            <button id="register--button">Register</button>
-        </section>
+    </section>
+    
+    
+ 
     `
 }
 
