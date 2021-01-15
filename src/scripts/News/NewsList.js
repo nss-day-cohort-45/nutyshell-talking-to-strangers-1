@@ -6,6 +6,7 @@ import { useNews, getNews } from "./NewsProvider.js"
 import { NewsHTMLconverter } from "./NewsHTMLconverter.js"
 import { NewsForm } from "./NewsForm.js"
 import { newsModalButton } from "./NewsModalButton.js"
+import { GetUsers } from "../user/UserDataProvider.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector("#theNews")
@@ -18,10 +19,10 @@ let news = []
 
 export const NewsList = () => {
     getNews()
-    .then(GetUsers)
+    // .then(GetUsers)
     .then(() => {
         news = useNews()
-        user = UseUsers()
+        // user = UseUsers()
         render(news)
         newsModalButton()
     })
@@ -31,7 +32,7 @@ const render = (articles) => {
     
     if (articles.length > 0){
         contentTarget.innerHTML = articles
-        .map((newArticle) => NewsHTMLconverter(newArticle, user))
+        .map((newArticle) => NewsHTMLconverter(newArticle))
         .join("")
     }
 }
