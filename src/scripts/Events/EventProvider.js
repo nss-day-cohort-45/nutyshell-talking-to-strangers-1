@@ -1,3 +1,8 @@
+/*
+Author Christopher Lunetta
+Data Provider for events that allows access to the api to for the following functions get/use/save/delete 
+*/
+
 // container used for eventHub for listening events to bubble to and from
 const eventHub = document.querySelector(".container");
 
@@ -26,7 +31,7 @@ export const UseEvents = () => events.slice();
 
 // If a user saves an event "POST" to API data and run dispatchStateChangeEvent
 export const SaveEvent = (event) => {
-  return fetch("https:localhost:8088/events", {
+  return fetch("http://localhost:8088/events", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -39,7 +44,7 @@ export const SaveEvent = (event) => {
 
 // If a user deletes an event "DELETE" the event that corresponds with the id of that event
 export const DeleteEvent = (eventId) => {
-  return fetch(`https:localhost:8088/events/${eventId}`, {
+  return fetch(`http://localhost:8088/events/${eventId}`, {
     method: "DELETE",
   })
     .then(GetEvents)
