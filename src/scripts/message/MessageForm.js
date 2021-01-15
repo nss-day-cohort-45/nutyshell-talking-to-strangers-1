@@ -17,7 +17,7 @@ eventHub.addEventListener("click", clickEvent =>{
         
         const newMessage = {
             userId: userId,
-            friendId: friendId, //how to fill this/ access this?????
+            friendId: null, //how to fill this/ access this?????
             message: message,
             timestamp: Date.now()
         }
@@ -29,7 +29,7 @@ eventHub.addEventListener("click", clickEvent =>{
 // a render function to display the new chat message that has been added
 const render = () => {
     //??const messageCollection = useMessages()
-    contentTarget.innerHTML = `<section>
+    contentTarget.innerHTML = `<section >
     <p> please place message here. </p>
     <input id="messageString" type="text" required placeholder="type here">
     <button type="button" id="sendBtn" >Send</button>
