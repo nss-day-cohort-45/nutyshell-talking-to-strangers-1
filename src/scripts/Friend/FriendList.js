@@ -19,32 +19,31 @@ FriendList()
 
 // for every object in the friends array, return ones with activeUser id
 // for every object with a matching userId or friendId, return username of the other one 
-const render = (friendsArray) => {
-    const listOfFriends = friendsArray.filter((friendObj) => {
-      const matchingFriendObjects = 
+const render = (friends) => {
+  const userID = parseInt(sessionStorage.getItem("activeUser"))
+  const listOfFriends = getFriendObjects(userID, friends)
+  const names = listOfFriends.map(relationship => {
+    const friend = users.find((user) => {
+      return user.id === relationship.friendId
+    })
+    relationship.friend = friend.username
+    
+    
+  })
 
 
-
-        const associatedCriminal = criminals.find(
-            (criminal) => {
-                return criminal.id === note.criminalId
-            }
-        )
-        note.criminalName = associatedCriminal.name
-        return NoteHTMLConverter(note)
-        }
-    ).join("")
-
-    contentTarget.innerHTML = allNotesConvertedToStrings
+  contentTarget.innerHTML = listOfFriends
 }
 
+const getFriendObjects = (userID, friends) => {
+  const matchingFriendObjects = friends.filter(currentRel => currentRel.userId === userID)
+  return matchingFriendObjects
+}
 
-// Standard list function you're used to writing by now. BUT, don't call this in main.js! Why not?
-export const NoteList = () => {
-    let criminals = useCriminals()
-    getNotes()
+export const FriendsList = () => {
+    GetFriends()
         .then(() => {
-            const allNotes = useNotes()
-            render(allNotes, criminals)
+            const allFriends = UseFriends()
+            render(allFriends)
         })
 }
