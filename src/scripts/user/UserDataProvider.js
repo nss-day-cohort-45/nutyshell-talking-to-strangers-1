@@ -1,4 +1,5 @@
-const eventHub = document.querySelector(".container")
+
+let users = []
 
 export const GetUsers = () => {
     return fetch("http://localhost:8088/users")
@@ -8,8 +9,5 @@ export const GetUsers = () => {
         })
 }
 
-let users = []
 
-export const UseUsers = () => {
-    users.slice()
-}
+export const UseUsers = () =>  users.slice()

@@ -8,7 +8,7 @@ export const MessageHTMLConverter = (messageObj) => {
         <h3 class="message__title"> Chat History </h3>
         <div class="message__text" >${messageObj.message} </div>
         <div class="message__time" >${ new Date(messageObj.timestamp).toLocaleDateString('en-US')  } </div>
-        <div class="message__userId" >${messageObj.userId} </div> 
+        <div class="message__userId" >${messageObj.userName} </div> 
     </section>
     `
 }
