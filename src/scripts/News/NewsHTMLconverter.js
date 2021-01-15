@@ -13,7 +13,7 @@ if (sessionStorage.getItem("activeUser") !== null){
 }
 
 const userList = UseUsers()
-console.log(userList)
+// console.log(userList)
 
 
 export const NewsHTMLconverter = (newsObj, user) => {

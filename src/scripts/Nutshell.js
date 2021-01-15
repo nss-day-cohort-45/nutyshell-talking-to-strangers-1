@@ -4,6 +4,7 @@ import { FriendForm } from "./Friend/FriendForm.js";
 import { EventList } from "./Events/EventList.js";
 import { EventForm } from "./Events/EventForm.js";
 import { MessageForm } from "./Message/MessageForm.js"
+import { MessageList } from "./Message/MessageList.js";
 
 export const Nutshell = () => {
     NewsList();
@@ -12,5 +13,6 @@ export const Nutshell = () => {
     EventList();
     EventForm();
     MessageForm();
+    MessageList();
   // Render all your UI components here
 };

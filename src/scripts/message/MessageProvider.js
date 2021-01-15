@@ -11,7 +11,7 @@ const eventHub = document.querySelector("#container")
 let messages = []
 
 //gather the message
-export const getMessages = () => {
+export const GetMessages = () => {
     return fetch ('http://localhost:8088/messages')
     .then(response =>response.json())
     .then(parsedMessages => {
@@ -20,10 +20,10 @@ export const getMessages = () => {
 }
 
 //provides a copy of the messages array 
-export const useMessages = () => messages.slice()
+export const UseMessages = () => messages.slice()
 
 //saves the message to the json database
-export const saveMessage = message => {
+export const SaveMessage = message => {
     return fetch('http://localhost:8088/messages', {
         method: "POST",
         headers: {
@@ -31,15 +31,15 @@ export const saveMessage = message => {
         },
         body: JSON.stringify(message)
     })
-    .then(getMessages)
+    .then(GetMessages)
     .then(dispatchMessageChangeEvent)
 }
 
-export const deleteMessage = messageId => {
+export const DeleteMessage = messageId => {
     return fetch(`http://localhost:8088/messages/${messageId}`, {
         method: "DELETE"
     })
-    .then(getMessages)
+    .then(GetMessages)
     .then(dispatchMessageChangeEvent)
   }
 

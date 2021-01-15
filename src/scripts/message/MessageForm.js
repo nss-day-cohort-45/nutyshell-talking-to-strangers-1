@@ -1,15 +1,15 @@
 //Anna Moore
-//the goal of this module is 
-import { getMessages, useMessages, saveMessage } from "./MessageProvider.js"
+//the goal of this module is display the message form, t
+//ake the message that the user has typed and put it in the database
+import { GetMessages, UseMessages, SaveMessage } from "./MessageProvider.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector("#messageForm") //where are the msg appering?
 
-//needs an event hub for the text field being completed and "Enter" 
-//or a send button being clicked
-//how do I define/ gather the information on the user??
 //how do I define/gather the information on the friend the message was sent to ???
 
+//an event hub for the text field being completed and "Enter" 
+//or a send button being clicked
 eventHub.addEventListener("click", clickEvent =>{
     if(clickEvent.target.id === "sendBtn"){
         const message = document.querySelector("#messageString").value
@@ -21,7 +21,7 @@ eventHub.addEventListener("click", clickEvent =>{
             message: message,
             timestamp: Date.now()
         }
-        saveMessage(newMessage)
+        SaveMessage(newMessage)
     }
 })
 
@@ -35,12 +35,10 @@ const render = () => {
     <button class="button mt-3  is-info" type="button" id="sendBtn" >Send</button>
     </section>
     `
-    //onclick="myFunction()" 
-    //possible to place a function inside of the button tag
 }
 
-//idk what this function does but it looks important
+
 export const MessageForm = () => {
-    getMessages()
+    GetMessages()
     .then( () => render())
 }
