@@ -3,16 +3,16 @@ import { NewsList } from "./News/NewsList.js";
 import { EventList } from "./Events/EventList.js";
 import { EventForm } from "./Events/EventForm.js";
 import { ViewFriendsButton } from "./Friend/FriendBtn.js";
-import { FriendForm } from "./Friend/FriendForm.js";
-import { FriendList } from "./FriendList.js";
+import { FriendDialog } from "./Friend/FriendDialog.js";
+import { GetUsers } from "./user/UserDataProvider.js";
 
 export const Nutshell = () => {
     // Render all your UI components here
+    GetUsers();
     NewsList();
     NewsForm();
     ViewFriendsButton();
-    FriendForm();
-    FriendList();
+    FriendDialog();
     EventList();
     EventForm();
 }

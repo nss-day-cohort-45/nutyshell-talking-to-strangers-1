@@ -1,25 +1,19 @@
-// render list of friends
-// make delete button
-// listen for state change event and rerender list
+// This module is responsible for populating the View Friends dialog box that will show in the DOM when "View Friends" button is clicked.
+// Users will be able to delete each friend individually by clicking the "delete" button next to each friend.
+// The list of friends updates each time a friend is added through the FriendForm or deleted by clicking the delete button.
+// -Christina
 
-
-import { GetFriends, UseFriends } from "./FriendProvider.js"
 import { FriendHTMLConverter } from "./Friend.js"
+import { UseUsers } from "../user/UserDataProvider.js"
 
-const contentTarget = document.querySelector("#friendList")
 const eventHub = document.querySelector("#container")
 
-eventHub.addEventListener("viewFriendsClicked", () => {
+eventHub.addEventListener("friendStateChanged", () => {
 FriendList()
 })
 
-eventHub.addEventListener("noteStateChanged", () => {
-FriendList()
-})
-
-// for every object in the friends array, return ones with activeUser id
-// for every object with a matching userId or friendId, return username of the other one 
 const render = (friends) => {
+  const users = UseUsers()
   const userID = parseInt(sessionStorage.getItem("activeUser"))
   const listOfFriends = getFriendObjects(userID, friends)
   const names = listOfFriends.map(relationship => {
@@ -27,12 +21,9 @@ const render = (friends) => {
       return user.id === relationship.friendId
     })
     relationship.friend = friend.username
-    
-    
-  })
-
-
-  contentTarget.innerHTML = listOfFriends
+    return FriendHTMLConverter(relationship)
+  }).join("")
+  return names
 }
 
 const getFriendObjects = (userID, friends) => {
@@ -40,10 +31,6 @@ const getFriendObjects = (userID, friends) => {
   return matchingFriendObjects
 }
 
-export const FriendsList = () => {
-    GetFriends()
-        .then(() => {
-            const allFriends = UseFriends()
-            render(allFriends)
-        })
+export const FriendList = (allFriends) => {
+  return render(allFriends)
 }

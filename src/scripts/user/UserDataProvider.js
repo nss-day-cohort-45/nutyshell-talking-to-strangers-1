@@ -10,6 +10,4 @@ export const GetUsers = () => {
 
 let users = []
 
-export const UseUsers = () => {
-    users.slice()
-}
+export const UseUsers = () => users.slice()

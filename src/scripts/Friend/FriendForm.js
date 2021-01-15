@@ -5,12 +5,7 @@
 
 import { SaveFriend } from "./FriendProvider.js"
 
-const contentTarget = document.querySelector("#friendForm")
 const eventHub = document.querySelector("#container")
-
-// Makes "Add a Friend" form.
-// Makes "save" button 
-// Event listener dispatching state changed
 
 eventHub.addEventListener("click", clickEvent => {
   if (clickEvent.target.id === "saveFriend") {
@@ -33,12 +28,12 @@ eventHub.addEventListener("click", clickEvent => {
 })
 
 const render = () => {
-  contentTarget.innerHTML = `
+  return `
     <input type="text" id="friendUsername" placeholder="username">
     <button type="button" id="saveFriend">Save New Friend</button>
   `
 }
 
 export const FriendForm = () => {
-  render()
+  return render()
 }
