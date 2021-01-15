@@ -5,7 +5,7 @@ HTML representation of an event
 
 export const EventHTML = (event) => {
   return `
-    <div id="nextEventBg" class="tile is-child box is-4" is-flex-direction-column is-flex-wrap-wrap>
+    <div id="nextEventBg" class="tile is-child box" is-flex-direction-column is-flex-wrap-wrap>
       <div class="level">
         <p id="nextEvent" class="title">${event.name}</p>
         <a id="eventDelete--${event.id}" class="button is-danger is-outlined level-right is-small">
@@ -18,7 +18,9 @@ export const EventHTML = (event) => {
       <div>
         <p class="">${event.date}</p>
         <p class="">${event.location}</p>
-        <a class="button" disabled>Show Weather</a>
+        <div>
+        <a class="button mt-2" disabled>Show Weather</a>
+        </div>
       </div>
     </div>
   `;

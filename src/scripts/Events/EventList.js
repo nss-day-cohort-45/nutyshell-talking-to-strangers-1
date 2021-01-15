@@ -42,7 +42,7 @@ export const EventList = () => {
 // renders the html representation into the DOM and if its the next event adds CSS classes to stand out.
 const render = (events) => {
   contentTarget.innerHTML = `
-    <div class="tile is-ancestor">
+    <div class="tile is-ancestor is-6">
     <div class="tile">
       <div class="tile is-parent is-vertical is-flex">
         <p class="title">Events</p>
