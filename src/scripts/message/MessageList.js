@@ -1,5 +1,5 @@
 //Anna Moore
-//the goal of this module is 
+//the goal of this module is list the messages in the DOM, update dom when a message is deleted
 
 import { GetMessages, UseMessages, SaveMessage, DeleteMessage } from "./MessageProvider.js"
 import { MessageHTMLConverter } from "./Message.js"
@@ -22,9 +22,8 @@ eventHub.addEventListener("click", (event) => {
 eventHub.addEventListener("click", (event) => {
     if (event.target.id.startsWith("deleteMessage")){
       const [prefix, id] = event.target.id.split("--");
-  
       DeleteMessage(id);
-      MessageList()
+      MessageList();
     }
   });
 
