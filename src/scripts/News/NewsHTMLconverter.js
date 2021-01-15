@@ -1,5 +1,7 @@
 //This module allows for the conversion of a news object from the database into HTML
 // -Ron
+import { GetUsers, UseUsers} from "../user/UserDataProvider.js"
+
 
 const eventHub = document.querySelector(".container")
 
@@ -9,7 +11,12 @@ if (sessionStorage.getItem("activeUser") !== null){
     user = parseInt(sessionStorage.getItem("activeUser"))
  
 }
-export const NewsHTMLconverter = (newsObj) => {
+
+const userList = UseUsers()
+console.log(userList)
+
+
+export const NewsHTMLconverter = (newsObj, user) => {
     return `
     <div class="box ml-6 mr-6 mb-4">
     <article class="media">
@@ -29,3 +36,4 @@ export const NewsHTMLconverter = (newsObj) => {
 
     `
 }
+
