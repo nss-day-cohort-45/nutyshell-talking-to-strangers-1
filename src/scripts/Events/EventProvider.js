@@ -26,8 +26,14 @@ export const GetEvents = () => {
     });
 };
 
-// Events are put into an array
-export const UseEvents = () => events.slice();
+// Events are sorted by date so the closest event is at the top.
+export const UseEvents = () => {
+  const sortedByDate = events.sort(
+    (currentEvent, nextEvent) =>
+      Date.parse(currentEvent.date) - Date.parse(nextEvent.date)
+  );
+  return sortedByDate;
+};
 
 // If a user saves an event "POST" to API data and run dispatchStateChangeEvent
 export const SaveEvent = (event) => {
@@ -48,6 +54,5 @@ export const DeleteEvent = (eventId) => {
     method: "DELETE",
   })
     .then(GetEvents)
-    // TODO this dispatch may or may not make sense. trying to remove code doing the same thing twice.
     .then(dispatchStateChangeEvent);
 };
