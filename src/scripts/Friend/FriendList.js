@@ -20,7 +20,10 @@ FriendList()
 // for every object in the friends array, return ones with activeUser id
 // for every object with a matching userId or friendId, return username of the other one 
 const render = (friendsArray) => {
-    const listOfFriends = friendsArray.map((friend) => {
+    const listOfFriends = friendsArray.filter((friendObj) => {
+      const matchingFriendObjects = 
+
+
 
         const associatedCriminal = criminals.find(
             (criminal) => {
