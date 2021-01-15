@@ -1,3 +1,8 @@
+/*
+Renders Events to DOM, updates if user adds or deletes an event, and opens modal form for adding a new event
+  -Christopher Lunetta
+  */
+
 import { EventHTML } from "./Event.js";
 import { DeleteEvent, GetEvents, UseEvents } from "./EventProvider.js";
 
@@ -26,6 +31,7 @@ eventHub.addEventListener("click", (event) => {
   }
 });
 
+// Gets the events from the API and uses the data to render the existing ones.
 export const EventList = () => {
   GetEvents().then(() => {
     let events = UseEvents();
@@ -33,6 +39,7 @@ export const EventList = () => {
   });
 };
 
+// renders the html representation into the DOM and if its the next event adds CSS classes to stand out.
 const render = (events) => {
   contentTarget.innerHTML = `
     <div class="tile is-ancestor">
@@ -48,6 +55,7 @@ const render = (events) => {
       </div>
     </div>
   `;
+  // the first event chronologically in the array of events.
   if (events[0]) {
     document
       .getElementById("nextEvent")

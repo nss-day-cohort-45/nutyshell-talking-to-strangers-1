@@ -1,3 +1,8 @@
+/*
+HTML representation of an event
+  -Christopher Lunetta
+*/
+
 export const EventHTML = (event) => {
   return `
     <div id="nextEventBg" class="tile is-child box is-4" is-flex-direction-column is-flex-wrap-wrap>

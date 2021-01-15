@@ -1,6 +1,6 @@
 /*
-Author Christopher Lunetta
 Form used to save an event to the API 
+  -Christopher Lunetta
 */
 
 import { SaveEvent } from "./EventProvider.js";

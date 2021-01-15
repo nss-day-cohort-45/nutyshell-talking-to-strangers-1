@@ -1,6 +1,6 @@
 /*
-Author Christopher Lunetta
 Data Provider for events that allows access to the api to for the following functions get/use/save/delete 
+  -Christopher Lunetta
 */
 
 // container used for eventHub for listening events to bubble to and from
