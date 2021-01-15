@@ -18,6 +18,16 @@ eventHub.addEventListener("click", (event) => {
     }
 })
 
+// listener for when Delete button is clicked on message
+eventHub.addEventListener("click", (event) => {
+    if (event.target.id.startsWith("deleteMessage")){
+      const [prefix, id] = event.target.id.split("--");
+  
+      DeleteMessage(id);
+      MessageList()
+    }
+  });
+
 //render function
 //join two data collections together with their common key/value pair
 const render = () =>{
@@ -25,7 +35,7 @@ const render = () =>{
         m.userName = userArray.find((user)=> user.id === m.userId).username
         return m
     })
-    contentTarget.innerHTML =   `<h1 class="message__title"> Chat History </h1> ${messagesWithUsername.map( (m) => MessageHTMLConverter(m)).join("")}`
+    contentTarget.innerHTML =  `<h1 class="message__title is-size-1 px-4"> Chat History </h1> ${messagesWithUsername.map( (m) => MessageHTMLConverter(m)).join("")}`
 } 
 //standard list function 
 //GetMessages() and GetUser() are both asyn functions so .then()

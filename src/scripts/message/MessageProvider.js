@@ -35,9 +35,9 @@ export const SaveMessage = message => {
     .then(dispatchMessageChangeEvent)
 }
 
-export const DeleteMessage = messageId => {
+export const DeleteMessage = (messageId) => {
     return fetch(`http://localhost:8088/messages/${messageId}`, {
-        method: "DELETE"
+        method: "DELETE",
     })
     .then(GetMessages)
     .then(dispatchMessageChangeEvent)

@@ -31,8 +31,8 @@ const render = () => {
     //??const messageCollection = useMessages()
     contentTarget.innerHTML = `<section class="field is-2 ml-6 mt-6 mb-6">
     <p> please place message here. </p>
-    <input id="messageString" type="text" required placeholder="type here">
-    <button class="button mt-3  is-info" type="button" id="sendBtn" >Send</button>
+    <input  class="is-success" id="messageString" type="text" required placeholder="type here">
+    <button class="button mt-3  is-info" id="eventMessage-- type="button" id="sendBtn" >Send</button>
     </section>
     `
 }
