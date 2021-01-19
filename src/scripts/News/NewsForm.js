@@ -4,22 +4,46 @@
 // - Ron
 
 import { saveNews, deleteNews } from "./NewsProvider.js"
+import { UseUsers } from "../user/UserDataProvider.js"
 
 const contentTarget = document.querySelector("#newsForm")
 const eventHub = document.querySelector(".container")
 
-// create a function to find the matching username to userId
 
+eventHub.addEventListener("click", (event) => {
+  if (event.target.id === "openNewsForm") {
+    document.getElementById("newsFormModal").classList.add("is-active");
+  }
+});
+
+eventHub.addEventListener("click", (event) => {
+  if (event.target.id === "closeNewsForm") {
+    document.getElementById("newsFormModal").classList.remove("is-active");
+  }
+});
 
 
 export const NewsForm = () => {
-    
+  let users = UseUsers()
+  const currentUser = parseInt(sessionStorage.getItem("activeUser"))
+  const userName = users.find((person) => person.id === currentUser).username 
+
+
 contentTarget.innerHTML = `
 
-<div class="field is-2 ml-6 mt-6 mb-6">
-<label class="label">News Article Entry</label>
+<div id="newsFormModal" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">News Article Entry</p>
+      <button id="closeNewsForm" class="delete" aria-label="close"></button>
+    </header>
+
+    <section class="modal-card-body">
+    <div class="field">
+      <label class="label">News Article Entry</label>
 <!-- username will go here --!>
-<label class="label" id="userName">username will go here</p>
+<label class="label" id="userName">${userName}</p>
 <div class="field">
   <label class="label">Article URL</label>
   <div class="control">
@@ -38,16 +62,19 @@ contentTarget.innerHTML = `
     <textarea class="textarea" rows="4" placeholder="enter a synopsis for the news article" id="newsSynopsis"></textarea>
   </div>
 </div>
-
-<div class="control  is-flex is-justify-content-center">
-  <button class="button mt-3 is-primary" id="saveNews">Save News Article</button>
+</section>
+<footer class="modal-card-foot">
+  <button id="saveNews" class="button is-primary">Save News Article</button>
+  <button id="closeNewsForm" class="button is-danger">Cancel</button>
+</footer>
 </div>
 
 
-</form>
-</div>`;
-};
 
+
+
+`;
+};
 
 
 eventHub.addEventListener("click", clickEvent => {
@@ -68,9 +95,7 @@ eventHub.addEventListener("click", clickEvent => {
             }
             saveNews(newArticle)
             
-            url = ""
-            title= ""
-            synopsis= ""
+              document.getElementById("newsFormModal").classList.remove("is-active")
         
     }
     })
