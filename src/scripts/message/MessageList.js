@@ -44,7 +44,6 @@ export const MessageList = () => {
     .then( () =>  {
         userArray = UseUsers()
         appStateMessages = UseMessages()
-
         render()
     })
     

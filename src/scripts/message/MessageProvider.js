@@ -4,7 +4,6 @@
 //provides function to alter the database saveMessage(), and deleteMessage() 
 //contains event listeners to ensure this happens at the correct time
 
-
 const eventHub = document.querySelector("#container")
 
 //intialize empthy array
@@ -24,7 +23,7 @@ export const UseMessages = () => messages.slice()
 
 //saves the message to the json database
 export const SaveMessage = message => {
-    return fetch('http://localhost:8088/messages', {
+    return fetch("http://localhost:8088/messages", {
         method: "POST",
         headers: {
             "content-Type": "application/json"
@@ -38,10 +37,13 @@ export const SaveMessage = message => {
 export const DeleteMessage = (messageId) => {
     return fetch(`http://localhost:8088/messages/${messageId}`, {
         method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
     })
     .then(GetMessages)
     .then(dispatchMessageChangeEvent)
-  }
+}
 
   //update 
   eventHub.addEventListener("deleteMessage", e => {
