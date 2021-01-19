@@ -6,7 +6,7 @@ import { useNews, getNews } from "./NewsProvider.js"
 import { NewsHTMLconverter } from "./NewsHTMLconverter.js"
 import { NewsForm } from "./NewsForm.js"
 import { newsModalButton } from "./NewsModalButton.js"
-import { GetUsers } from "../user/UserDataProvider.js"
+import { GetUsers, UseUsers } from "../user/UserDataProvider.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector("#theNews")
@@ -14,6 +14,12 @@ const contentTarget = document.querySelector("#theNews")
 eventHub.addEventListener("newsStateChanged", (customEvent) => {
     NewsList()
 })
+
+eventHub.addEventListener("click", (event) => {
+    if (event.target.id === "openNewsForm") {
+      document.getElementById("newsFormModal").classList.add("is-active");
+    }
+  });
 
 let news = []
 
@@ -29,10 +35,28 @@ export const NewsList = () => {
 }
 
 const render = (articles) => {
+    // const users = UseUsers()
+    // const newsUserNames = news.map((newsUser) => {
+    //     newsUser.username = users.find((user) => user.id === newsUser.userId).username
+    //     return newsUsernames
+    // })
     
-    if (articles.length > 0){
-        contentTarget.innerHTML = articles
-        .map((newArticle) => NewsHTMLconverter(newArticle))
-        .join("")
-    }
+
+
+
+    contentTarget.innerHTML = `
+    <div class="tile is-ancestor is-6">
+    <div class="tile">
+      <div class="tile is-parent is-vertical is-flex">
+        <p class="title is-justify-content-center">News Articles</p>
+        ${articles
+                .map((newArticle) => NewsHTMLconverter(newArticle))
+                .join("")
+            }
+        
+          <a id="openNewsForm" class="button is-primary mt-3 ml-6">Add a news article</a>
+      </div>
+    </div>
+  `;
+
 }
