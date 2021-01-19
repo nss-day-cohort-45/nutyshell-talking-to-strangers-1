@@ -35,16 +35,8 @@ export const NewsList = () => {
 }
 
 const render = (articles) => {
-    // const users = UseUsers()
-    // const newsUserNames = news.map((newsUser) => {
-    //     newsUser.username = users.find((user) => user.id === newsUser.userId).username
-    //     return newsUsernames
-    // })
-    
 
-
-
-    contentTarget.innerHTML = `
+     contentTarget.innerHTML = `
     <div class="tile is-ancestor is-6">
     <div class="tile">
       <div class="tile is-parent is-vertical is-flex">

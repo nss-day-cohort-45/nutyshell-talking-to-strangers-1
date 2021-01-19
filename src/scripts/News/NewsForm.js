@@ -9,7 +9,7 @@ import { UseUsers } from "../user/UserDataProvider.js"
 const contentTarget = document.querySelector("#newsForm")
 const eventHub = document.querySelector(".container")
 
-// create a function to find the matching username to userId
+
 eventHub.addEventListener("click", (event) => {
   if (event.target.id === "openNewsForm") {
     document.getElementById("newsFormModal").classList.add("is-active");
