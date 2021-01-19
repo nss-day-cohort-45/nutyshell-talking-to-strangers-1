@@ -5,14 +5,20 @@ import { EventList } from "./Events/EventList.js";
 import { EventForm } from "./Events/EventForm.js";
 import { TaskList } from "./Task/TaskList.js";
 import { TaskForm } from "./Task/TaskForm.js";
+import { GetUsers } from "./user/UserDataProvider.js";
 
 export const Nutshell = () => {
-    NewsList();
-    NewsForm();
+    GetUsers()
+    .then(() => {
+        NewsForm()
+        NewsList()
+        EventList()
+    })
     FriendForm();
-    EventList();
     EventForm();
     TaskList();
     TaskForm();
+    
+   
   // Render all your UI components here
 };
