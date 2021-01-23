@@ -17,7 +17,7 @@ eventHub.addEventListener("click", clickEvent =>{
         
         const newMessage = {
             userId: userId,
-            friendId: null, //how to fill this/ access this?????
+            privateId: null, //how to fill this/ access this?????
             message: message,
             timestamp: Date.now()
         }
